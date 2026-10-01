@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{70F3BF98-B394-4F3B-9410-79413E3DCAD5}|Infrastructure\\Infrastructure.csproj|e:\\ahmed\\backend\\shipmentsystem\\infrastructure\\genericrepository\\merchantrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70F3BF98-B394-4F3B-9410-79413E3DCAD5}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\genericrepository\\merchantrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9DC267A-BF87-4FED-B38F-847E607465B8}|Applcation\\Applcation.csproj|e:\\ahmed\\backend\\shipmentsystem\\applcation\\feature\\merchantrequest\\query\\interfcae\\imerchantrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9DC267A-BF87-4FED-B38F-847E607465B8}|Applcation\\Applcation.csproj|solutionrelative:applcation\\feature\\merchantrequest\\query\\interfcae\\imerchantrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9DC267A-BF87-4FED-B38F-847E607465B8}|Applcation\\Applcation.csproj|e:\\ahmed\\backend\\shipmentsystem\\applcation\\feature\\authapplacation\\registeruser\\registeruserhandelr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9DC267A-BF87-4FED-B38F-847E607465B8}|Applcation\\Applcation.csproj|solutionrelative:applcation\\feature\\authapplacation\\registeruser\\registeruserhandelr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9DC267A-BF87-4FED-B38F-847E607465B8}|Applcation\\Applcation.csproj|e:\\ahmed\\backend\\shipmentsystem\\applcation\\feature\\merchantrequest\\query\\getallmerchanrhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9DC267A-BF87-4FED-B38F-847E607465B8}|Applcation\\Applcation.csproj|solutionrelative:applcation\\feature\\merchantrequest\\query\\getallmerchanrhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9DC267A-BF87-4FED-B38F-847E607465B8}|Applcation\\Applcation.csproj|e:\\ahmed\\backend\\shipmentsystem\\applcation\\feature\\merchantrequest\\query\\getallmerchantrequsetquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9DC267A-BF87-4FED-B38F-847E607465B8}|Applcation\\Applcation.csproj|solutionrelative:applcation\\feature\\merchantrequest\\query\\getallmerchantrequsetquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9DC267A-BF87-4FED-B38F-847E607465B8}|Applcation\\Applcation.csproj|e:\\ahmed\\backend\\shipmentsystem\\applcation\\feature\\merchantrequest\\dto\\getallmerchantreponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9DC267A-BF87-4FED-B38F-847E607465B8}|Applcation\\Applcation.csproj|solutionrelative:applcation\\feature\\merchantrequest\\dto\\getallmerchantreponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9DC267A-BF87-4FED-B38F-847E607465B8}|Applcation\\Applcation.csproj|e:\\ahmed\\backend\\shipmentsystem\\applcation\\feature\\merchantrequest\\dto\\registermerchantrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9DC267A-BF87-4FED-B38F-847E607465B8}|Applcation\\Applcation.csproj|solutionrelative:applcation\\feature\\merchantrequest\\dto\\registermerchantrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9DC267A-BF87-4FED-B38F-847E607465B8}|Applcation\\Applcation.csproj|e:\\ahmed\\backend\\shipmentsystem\\applcation\\feature\\authapplacation\\registeruser\\registerusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9DC267A-BF87-4FED-B38F-847E607465B8}|Applcation\\Applcation.csproj|solutionrelative:applcation\\feature\\authapplacation\\registeruser\\registerusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MerchantRequestRepository.cs",
+              "DocumentMoniker": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Infrastructure\\GenericRepository\\MerchantRequestRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\GenericRepository\\MerchantRequestRepository.cs",
+              "ToolTip": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Infrastructure\\GenericRepository\\MerchantRequestRepository.cs",
+              "RelativeToolTip": "Infrastructure\\GenericRepository\\MerchantRequestRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAQwAkAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T08:01:34.639Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IMerchantRepository.cs",
+              "DocumentMoniker": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Applcation\\Feature\\MerchantRequest\\Query\\Interfcae\\IMerchantRepository.cs",
+              "RelativeDocumentMoniker": "Applcation\\Feature\\MerchantRequest\\Query\\Interfcae\\IMerchantRepository.cs",
+              "ToolTip": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Applcation\\Feature\\MerchantRequest\\Query\\Interfcae\\IMerchantRepository.cs",
+              "RelativeToolTip": "Applcation\\Feature\\MerchantRequest\\Query\\Interfcae\\IMerchantRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T07:53:23.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RegisterUserHandelr.cs",
+              "DocumentMoniker": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Applcation\\Feature\\AuthApplacation\\RegisterUser\\RegisterUserHandelr.cs",
+              "RelativeDocumentMoniker": "Applcation\\Feature\\AuthApplacation\\RegisterUser\\RegisterUserHandelr.cs",
+              "ToolTip": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Applcation\\Feature\\AuthApplacation\\RegisterUser\\RegisterUserHandelr.cs",
+              "RelativeToolTip": "Applcation\\Feature\\AuthApplacation\\RegisterUser\\RegisterUserHandelr.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T07:51:47.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GetAllMerchanrHandler.cs",
+              "DocumentMoniker": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Applcation\\Feature\\MerchantRequest\\Query\\GetAllMerchanrHandler.cs",
+              "RelativeDocumentMoniker": "Applcation\\Feature\\MerchantRequest\\Query\\GetAllMerchanrHandler.cs",
+              "ToolTip": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Applcation\\Feature\\MerchantRequest\\Query\\GetAllMerchanrHandler.cs",
+              "RelativeToolTip": "Applcation\\Feature\\MerchantRequest\\Query\\GetAllMerchanrHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T07:51:40.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RegisterMerchantRequest.cs",
+              "DocumentMoniker": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Applcation\\Feature\\MerchantRequest\\DTO\\RegisterMerchantRequest.cs",
+              "RelativeDocumentMoniker": "Applcation\\Feature\\MerchantRequest\\DTO\\RegisterMerchantRequest.cs",
+              "ToolTip": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Applcation\\Feature\\MerchantRequest\\DTO\\RegisterMerchantRequest.cs",
+              "RelativeToolTip": "Applcation\\Feature\\MerchantRequest\\DTO\\RegisterMerchantRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T07:49:02.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GetAllMerchantReponse.cs",
+              "DocumentMoniker": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Applcation\\Feature\\MerchantRequest\\DTO\\GetAllMerchantReponse.cs",
+              "RelativeDocumentMoniker": "Applcation\\Feature\\MerchantRequest\\DTO\\GetAllMerchantReponse.cs",
+              "ToolTip": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Applcation\\Feature\\MerchantRequest\\DTO\\GetAllMerchantReponse.cs",
+              "RelativeToolTip": "Applcation\\Feature\\MerchantRequest\\DTO\\GetAllMerchantReponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T07:48:58.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RegisterUserCommand.cs",
+              "DocumentMoniker": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Applcation\\Feature\\AuthApplacation\\RegisterUser\\RegisterUserCommand.cs",
+              "RelativeDocumentMoniker": "Applcation\\Feature\\AuthApplacation\\RegisterUser\\RegisterUserCommand.cs",
+              "ToolTip": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Applcation\\Feature\\AuthApplacation\\RegisterUser\\RegisterUserCommand.cs",
+              "RelativeToolTip": "Applcation\\Feature\\AuthApplacation\\RegisterUser\\RegisterUserCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T07:48:27.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GetAllMerchantRequsetQuery.cs",
+              "DocumentMoniker": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Applcation\\Feature\\MerchantRequest\\Query\\GetAllMerchantRequsetQuery.cs",
+              "RelativeDocumentMoniker": "Applcation\\Feature\\MerchantRequest\\Query\\GetAllMerchantRequsetQuery.cs",
+              "ToolTip": "E:\\Ahmed\\BackEnd\\ShipmentSystem\\Applcation\\Feature\\MerchantRequest\\Query\\GetAllMerchantRequsetQuery.cs",
+              "RelativeToolTip": "Applcation\\Feature\\MerchantRequest\\Query\\GetAllMerchantRequsetQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T07:43:35.119Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

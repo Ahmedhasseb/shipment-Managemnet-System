@@ -1,0 +1,39 @@
+﻿using Domain.Entites;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Infrastructure.Data.Configuration
+{
+    internal class MerchantConfiguration : IEntityTypeConfiguration<Merchant>
+    {
+        public void Configure(EntityTypeBuilder<Merchant> builder)
+        {
+            builder.HasKey(m => m.Id);
+            builder.Property(e => e.userId)
+                     .HasMaxLength(450);
+            builder.Property(m => m.name).IsRequired().HasMaxLength(100);
+            builder.Property(m => m.Email).IsRequired().HasMaxLength(100);
+            builder.Property(m => m.PhoneMerchant).IsRequired();
+            builder.Property(m => m.Address).IsRequired().HasMaxLength(200);
+            builder.HasOne(m => m.Wallet)
+                   .WithOne(m => m.Merchant)
+                   .HasForeignKey<Merchant>(m => m.WalletId)
+                   .OnDelete(DeleteBehavior.Restrict);
+            builder.HasMany(m => m.Shipments)
+                   .WithOne(s => s.Merchant)
+                   .HasForeignKey(s => s.MerchantId)
+                   .OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne<User>()
+                        .WithOne()
+                        .HasForeignKey<Merchant>(m => m.userId)
+                        .OnDelete(DeleteBehavior.Restrict);
+            {
+            }
+        }
+    }
+}

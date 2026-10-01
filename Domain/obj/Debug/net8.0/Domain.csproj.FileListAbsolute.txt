@@ -1,0 +1,12 @@
+E:\Ahmed\BackEnd\ShipmentSystem\Domain\bin\Debug\net8.0\Domain.deps.json
+E:\Ahmed\BackEnd\ShipmentSystem\Domain\bin\Debug\net8.0\Domain.dll
+E:\Ahmed\BackEnd\ShipmentSystem\Domain\bin\Debug\net8.0\Domain.pdb
+E:\Ahmed\BackEnd\ShipmentSystem\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\Ahmed\BackEnd\ShipmentSystem\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+E:\Ahmed\BackEnd\ShipmentSystem\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+E:\Ahmed\BackEnd\ShipmentSystem\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+E:\Ahmed\BackEnd\ShipmentSystem\Domain\obj\Debug\net8.0\Domain.dll
+E:\Ahmed\BackEnd\ShipmentSystem\Domain\obj\Debug\net8.0\refint\Domain.dll
+E:\Ahmed\BackEnd\ShipmentSystem\Domain\obj\Debug\net8.0\Domain.pdb
+E:\Ahmed\BackEnd\ShipmentSystem\Domain\obj\Debug\net8.0\ref\Domain.dll
+E:\Ahmed\BackEnd\ShipmentSystem\Domain\obj\Debug\net8.0\Domain.csproj.Up2Date

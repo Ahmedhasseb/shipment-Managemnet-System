@@ -1,0 +1,15 @@
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\bin\Debug\net8.0\Applcation.deps.json
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\bin\Debug\net8.0\Applcation.dll
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\bin\Debug\net8.0\Applcation.pdb
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\bin\Debug\net8.0\Domain.dll
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\bin\Debug\net8.0\Domain.pdb
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\obj\Debug\net8.0\Applcation.csproj.AssemblyReference.cache
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\obj\Debug\net8.0\Applcation.GeneratedMSBuildEditorConfig.editorconfig
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\obj\Debug\net8.0\Applcation.AssemblyInfoInputs.cache
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\obj\Debug\net8.0\Applcation.AssemblyInfo.cs
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\obj\Debug\net8.0\Applcation.csproj.CoreCompileInputs.cache
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\obj\Debug\net8.0\Applcation.csproj.Up2Date
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\obj\Debug\net8.0\Applcation.dll
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\obj\Debug\net8.0\refint\Applcation.dll
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\obj\Debug\net8.0\Applcation.pdb
+E:\Ahmed\BackEnd\ShipmentSystem\Applcation\obj\Debug\net8.0\ref\Applcation.dll
