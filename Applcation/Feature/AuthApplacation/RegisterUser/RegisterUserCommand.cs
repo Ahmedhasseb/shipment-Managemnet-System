@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Applcation.Feature.AuthApplacation.RegisterUser
 {
-    public class RegisterUserCommand : IRequest<Results>
+    public class RegisterUserCommand : IRequest<Result>
     {
         public RegisterUserDTO RegisterUser { get; set; }
     }

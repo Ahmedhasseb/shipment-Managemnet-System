@@ -4,9 +4,9 @@ using MediatR;
 
 namespace Applcation.Feature.MerchantRequests.Command.CreateRequestMerchmant
 {
-    public class MerchamntRequestHandelr(IMarchmentRequestService _marchmentRequestService) : IRequestHandler<MerchmantRequestCommand, Results>
+    public class MerchamntRequestHandelr(IMarchmentRequestService _marchmentRequestService) : IRequestHandler<MerchmantRequestCommand, Result>
     {
-        public async Task<Results> Handle(MerchmantRequestCommand request, CancellationToken cancellationToken)
+        public async Task<Result> Handle(MerchmantRequestCommand request, CancellationToken cancellationToken)
         {
             var CreateRequest = await _marchmentRequestService.CreateMerchmentRquest(request.registerMerchantRequest, cancellationToken);
             return CreateRequest;

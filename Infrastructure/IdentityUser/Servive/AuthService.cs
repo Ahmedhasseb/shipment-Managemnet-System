@@ -29,10 +29,10 @@ namespace service
 
 
 
-        public async Task<Results> RegisterUser(RegisterUserDTO registerDTO)
+        public async Task<Result> RegisterUser(RegisterUserDTO registerDTO)
         {
             if (registerDTO == null)
-                return Results.Failure("Invalid registration data");
+                return Result.Failure(ErrorType.validation,"Invalid registration data");
 
 
             var CreateUser = new User
@@ -51,12 +51,12 @@ namespace service
 
             {
                 var errors = result.Errors.Select(i => i.Description).ToList();
-                return Results.Failure("Registerion Faild", errors);
+                return Result.Failure(ErrorType.validation,"Registerion Faild");
 
             }
             await _userManager.AddToRoleAsync(CreateUser, "User");
 
-            return ResultT<string>.Success("User registered successfully");
+            return Result.Success("User registered successfully");
 
         }
 
@@ -111,21 +111,21 @@ namespace service
 
 
 
-        public async Task<ResultT<LoginResponseDTO>> signInApplaction(string Email, string Password)
+        public async Task<Result<LoginResponseDTO>> signInApplaction(string Email, string Password)
         {
             var FindUser = await _userManager.FindByEmailAsync(Email);
             if (FindUser == null)
-                return ResultT<LoginResponseDTO>.Failure("the Account Not found Please Register Only");
+                return Result<LoginResponseDTO>.Failure("the Account Not found Please Register Only",ErrorType.notfound);
             switch (FindUser.AccountTypes)
             {
                 case AccountTypes.AccountPending:
-                    return ResultT<LoginResponseDTO>.Failure("the Account Replay Information with employee Company");
+                    return Result<LoginResponseDTO>.Failure("the Account Replay Information with employee Company",ErrorType.notfound);
                 case AccountTypes.AcoountSetPassword:
-                    return ResultT<LoginResponseDTO>.Failure("Please Set New Password first ");
+                    return Result<LoginResponseDTO>.Failure("Please Set New Password first ",ErrorType.validation);
                 case AccountTypes.AcountReject:
-                    return ResultT<LoginResponseDTO>.Failure("Your registration request was rejected. ");
+                    return Result<LoginResponseDTO>.Failure("Your registration request was rejected.",ErrorType.forbidden);
                 case AccountTypes.AccountDisable:
-                    return ResultT<LoginResponseDTO>.Failure("Your account has been disabled ");
+                    return Result<LoginResponseDTO>.Failure("Your account has been disabled.",ErrorType.forbidden);
 
             }
 
@@ -133,13 +133,13 @@ namespace service
 
             if (!CheckPassword)
             {
-                return ResultT<LoginResponseDTO>.Failure("Invaild Email Or Password pleas Check");
+                return Result<LoginResponseDTO>.Failure("Invaild Email Or Password pleas Check",ErrorType.validation);
             }
 
             var RolesUser = await _userManager.GetRolesAsync(FindUser);
             var token = GenerateJwtToken(FindUser, RolesUser);
 
-            return ResultT<LoginResponseDTO>.Success(new LoginResponseDTO
+            return Result<LoginResponseDTO>.Success(new LoginResponseDTO
             {
                 UserId = FindUser.Id,
                 Email = Email,

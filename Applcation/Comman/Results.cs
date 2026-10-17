@@ -1,36 +1,47 @@
-﻿namespace Applcation.Comman
+﻿using Domain.Enums;
+
+namespace Applcation.Comman
 {
-    public class Results
+    public class Result
     {
-        public bool IsSuccess { get; protected set; }
-        public string Message { get; protected set; }
-        public List<string> Errors { get; protected set; } = new();
+        public bool IsSuccess { get;  }
+        public string Message { get;  }
+        public IReadOnlyList<string> Errors { get; } 
 
-        public Results(bool succes, string Message, List<string>? Errors = null)
+        public ErrorType ErrorType { get; set; }
+
+        protected Result(bool succes, string Message, ErrorType errorsType, IEnumerable<string>? errors = null)
         {
-            this.IsSuccess = succes;
-            this.Message = Message;
-            this.Errors = Errors ?? new List<string>();
-
+           IsSuccess = succes;
+           Message = Message;
+           Errors = (errors ?? Enumerable.Empty<string>()).ToArray();
+           ErrorType = errorsType;
         }
 
-        public static Results Success(string massege = "Success")
+        public static Result Success(string massege = "Success")
         {
-            return new Results
+            return new Result
                 (
               true,
-              massege
+              massege,
+             ErrorType.None
                 );
 
         }
 
-        public static Results Failure(string Massage = "fauiler", List<string>? Errors = null)
+        public static  Result      Failure( ErrorType errorType,string Massage = "fauiler",IEnumerable<string>? error = null  )
         {
-            return new Results
+            if (errorType == ErrorType.None)
+            {
+                throw new ArgumentException("ErrorType cannot be None for a failure result.", nameof(errorType));
+            }
+            return new Result
             (
                 false,
                  Massage,
-                 Errors
+                errorType,
+                error
+                   
 
             );
         }

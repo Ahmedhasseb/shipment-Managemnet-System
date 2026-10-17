@@ -6,6 +6,6 @@ namespace Applcation.Interface.Iservice
 {
     public interface IRegisterManagerBranch
     {
-        Task<ResultT<bool>> RegisterManagerBranches(RegisterManagerBranchDTO registerManagerBranchDTO, CancellationToken cancellationToken);
+        Task<Result<bool>> RegisterManagerBranches(RegisterManagerBranchDTO registerManagerBranchDTO, CancellationToken cancellationToken);
     }
 }

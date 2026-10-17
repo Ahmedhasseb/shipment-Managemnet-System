@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure
 {
-    public class MerchantRequestRepository : Genericrepository<MerchantRequests>, IMerchantRepository
+    public class MerchantRequestRepository : Genericrepository<MerchantRequests>, IMerchantRequestRepository
     {
         private readonly dbContext _dbContext;
 

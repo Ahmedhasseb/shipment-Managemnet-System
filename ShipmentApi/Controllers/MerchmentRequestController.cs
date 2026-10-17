@@ -1,11 +1,14 @@
-﻿using Applcation.Feature.MerchantRequest.DTO;
+﻿using Applcation;
+using Applcation.Feature.MerchantRequest.DTO;
 
 using Applcation.Feature.MerchantRequests.Command.CreateRequestMerchmant;
 using Applcation.Feature.MerchantRequests.Command.UpdatemarchmentRequest;
 using Applcation.Feature.MerchantRequests.Query.GetAllMarchmentApproved;
 using Applcation.Feature.MerchantRequests.Query.GettAllMerchament;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -25,6 +28,19 @@ namespace ShipmentSystem.Controllers
         public async Task<IActionResult> GetAllMerchamentApproved()
         {
             var Result = await _mediator.Send(new GetAllMerchantRequsetQuery());
+
+            return Ok(Result);
+        }
+        [Authorize(Roles = "Manager")]
+        [HttpGet("GetAllMerchamentRequestByBranch")]
+        public async Task<IActionResult> GetAllMerchamentRequestByBranch()
+        {
+            var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(UserId))
+            {
+                return Unauthorized();
+            }
+            var Result = await _mediator.Send(new GetAllMerchamentRequestQuery { id = UserId });
 
             return Ok(Result);
         }

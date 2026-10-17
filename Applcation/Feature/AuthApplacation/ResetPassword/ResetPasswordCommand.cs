@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Applcation.Feature.AuthApplacation.ResetPassword
 {
-    public  class ResetPasswordCommand:IRequest<ResultT<bool>>
+    public  class ResetPasswordCommand:IRequest<Result<bool>>
     {
         public string Email { get; set; }   
         public string Password { get; set; }

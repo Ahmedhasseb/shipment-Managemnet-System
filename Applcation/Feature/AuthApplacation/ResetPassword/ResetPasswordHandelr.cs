@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Applcation.Feature.AuthApplacation.ResetPassword
 {
-    public class ResetPasswordHandelr(IRestPassword resetPasswordService) : IRequestHandler<ResetPasswordCommand, ResultT<bool>>
+    public class ResetPasswordHandelr(IRestPassword resetPasswordService) : IRequestHandler<ResetPasswordCommand, Result<bool>>
     {
-        public async Task<ResultT<bool>> Handle(ResetPasswordCommand request, CancellationToken cancellationToken)
+        public async Task<Result<bool>> Handle(ResetPasswordCommand request, CancellationToken cancellationToken)
         {
            var Result =await resetPasswordService.RestartPaswword(request.Email,request.Password);
             return Result;

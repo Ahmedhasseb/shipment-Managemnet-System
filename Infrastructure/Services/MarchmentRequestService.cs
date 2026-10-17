@@ -21,16 +21,16 @@ namespace Infrastructure.Services
             _iuniteOfWork = iuniteOfWork;
             _userManager = userManager;
         }
-        public async Task<ResultT<string>> AcceptEmailMerchant(int id, CancellationToken cancellationToken)
+        public async Task<Result<string>> AcceptEmailMerchant(int id, CancellationToken cancellationToken)
         {
 
             try
             {
                 using var transaction = _iuniteOfWork.BeginTransactionAsync(cancellationToken);
-                if (id == null)
-                    return ResultT<string>.Failure("Merchant ID is invalid.");
+                if (id <=0)
+                    return Result<string>.Failure("Merchant ID is invalid.", ErrorType.validation);
 
-                var FindMerchantRequest = await _iuniteOfWork.MerchantRequestRepository.GetByid(id);
+                var FindMerchantRequest = await _iuniteOfWork.MerchantRequestRepository.GetByidAsync(id);
                 if (FindMerchantRequest != null)
                 {
 
@@ -49,15 +49,15 @@ namespace Infrastructure.Services
 
                     };
 
-                    await _userManager.CreateAsync(Createuser);
+                  var Result=  await _userManager.CreateAsync(Createuser);
 
 
-                    var resultRole = await _userManager.AddToRoleAsync(Createuser, "Merchant");
-                    if (!resultRole.Succeeded)
+                    if (!Result.Succeeded)
                     {
-                        var x = resultRole.Errors.Select(i => i.Description).ToList();
-                        return ResultT<string>.Failure("Invaild Role", x);
+                        var x = Result.Errors.Select(i => i.Description).ToList();
+                        return Result<string>.Failure("Failed to create Marchment", ErrorType.failure, x);
                     }
+                    var resultRole = await _userManager.AddToRoleAsync(Createuser, "Merchant");
 
                     // Create wallet for the merchant
                     var wallet = new Wallet
@@ -83,7 +83,10 @@ namespace Infrastructure.Services
                     };
 
                     await _iuniteOfWork.walletRepository.AddAsync(wallet);
-                    await _iuniteOfWork.MerchanrRepository.AddAsync(CreateMerchant);
+                    await _iuniteOfWork.MerchmentRepository.AddAsync(CreateMerchant);
+                    FindMerchantRequest.registerionRequest = RegisterionRequestMarchment.Approve;
+                    FindMerchantRequest.UserId = Createuser.Id;
+                     _iuniteOfWork.MerchantRequestRepository.update(FindMerchantRequest);
 
                     await _iuniteOfWork.SaveChangesAsync(cancellationToken);
 
@@ -91,9 +94,6 @@ namespace Infrastructure.Services
 
 
 
-                    FindMerchantRequest.registerionRequest = RegisterionRequestMarchment.Approve;
-                    FindMerchantRequest.UserId = Createuser.Id;
-                    _iuniteOfWork.MerchantRequestRepository.updateAsync(FindMerchantRequest);
 
 
 
@@ -101,7 +101,7 @@ namespace Infrastructure.Services
                     var link = $"https://your-frontend.com/reset-password" + $"?email={encodedEmail}";
 
                     await _emailService.SendEmailAsync(Createuser.Email, "Marchment Account Aprovee", $" Your merchant account has been approved.\r\n\r\n Please click the following link to create your password:\r\n\r\n  {link}");
-                    return ResultT<string>.Success("Merchant request accepted successfully");
+                    return Result<string>.Success("Merchant request accepted successfully");
 
 
 
@@ -111,16 +111,15 @@ namespace Infrastructure.Services
             {
 
              await  _iuniteOfWork.RollbackAsync(cancellationToken);
-                return ResultT<string>.Failure($"An error occurred while accepting the merchant request: {ex.Message}");
+                return Result<string>.Failure($"An error occurred while accepting the merchant request: {ex.Message}", ErrorType.failure);
             }
-            return ResultT<string>.Failure("Merchant request not found.");
-
+            return Result<string>.Failure("Merchant request not found.", ErrorType.notfound);
         }
 
-        public async Task<Results> CreateMerchmentRquest(RegisterMerchantRequest registerMerchantRequest, CancellationToken cancellationToken)
+        public async Task<Result> CreateMerchmentRquest(RegisterMerchantRequest registerMerchantRequest, CancellationToken cancellationToken)
         {
             if (registerMerchantRequest is null)
-                return Results.Failure("Invaild Forms");
+                return Result.Failure(ErrorType.validation,"Invaild Forms");
 
             var createRequest = new MerchantRequests()
             {
@@ -132,7 +131,7 @@ namespace Infrastructure.Services
                 LName = registerMerchantRequest.LName,
                 Created = DateTime.UtcNow,
                 registerionRequest = RegisterionRequestMarchment.pending,
-                UserId = null
+                
 
 
             };
@@ -141,14 +140,17 @@ namespace Infrastructure.Services
 
 
 
-            return Results.Success("Your Sent Rquest Done Sucess Please Waiting is Approval");
+            return Result.Success("Your Sent Rquest Done Sucess Please Waiting is Approval");
         }
 
-        public async Task<ResultT<List<GetAllMerchantReponse>>> GetAllMerchamntRequestByBranch(string UserId, CancellationToken cancellationToken)
+        public async Task<Result<List<GetAllMerchantReponse>>> GetAllMerchamntRequestByBranch(string UserId, CancellationToken cancellationToken)
         {
-            var FindBranch = await _iuniteOfWork.ManagerBranchRepository.GetAllAsync(cancellationToken);
-            var GetByidBranch= FindBranch.Where(i=>i.UserId==UserId).FirstOrDefault();
-            var getAllMerchmentRequest = await _iuniteOfWork.MerchantRequestRepository.GetAllMerchamntRequestByBranch( GetByidBranch.ManagerBranchId  , cancellationToken);
+            if (string.IsNullOrWhiteSpace(UserId))
+                return Result<List<GetAllMerchantReponse>>.Failure("User ID is required.",ErrorType.validation);
+            var branch = await _iuniteOfWork.ManagerBranchRepository.GetManagerBranchByIdAsync(UserId, cancellationToken);
+            if (branch == null)
+                return Result<List<GetAllMerchantReponse>>.Failure("Branch not found ",ErrorType.notfound);
+            var getAllMerchmentRequest = await _iuniteOfWork.MerchantRequestRepository.GetAllMerchamntRequestByBranch( branch.ManagerBranchId  , cancellationToken);
             var MapDto = getAllMerchmentRequest.Select(i => new GetAllMerchantReponse
             {
                 Id = i.Id,
@@ -160,11 +162,11 @@ namespace Infrastructure.Services
                 UserId = i.UserId,
                 BranchId=i.BranchId
             }).ToList();
-            return ResultT<List<GetAllMerchantReponse>>.Success(MapDto, "All Data Merchament Request");
+            return Result<List<GetAllMerchantReponse>>.Success(MapDto, "Merchant requests retrieved successfully");
 
         }
 
-        public async Task<ResultT<List<GetAllMerchantReponse>>> GetAllMerchmentApprove(CancellationToken cancellationToken)
+        public async Task<Result<List<GetAllMerchantReponse>>> GetAllMerchmentApprove(CancellationToken cancellationToken)
         {
             var GetAllMerhmantAprove = await _iuniteOfWork.MerchantRequestRepository.GetAllMerchantsAproved(cancellationToken);
             var result = GetAllMerhmantAprove.Select(i => new GetAllMerchantReponse
@@ -177,10 +179,10 @@ namespace Infrastructure.Services
                 UserId = i.UserId
             }).ToList();
 
-            return ResultT<List<GetAllMerchantReponse>>.Success(result, "All Data Merchament Request");
+            return Result<List<GetAllMerchantReponse>>.Success(result, "Merchant requests Approved retrieved successfully");
         }
 
-        public async Task<ResultT<List<GetAllMerchantReponse>>> GettAllMarchment(CancellationToken cancellationToken)
+        public async Task<Result<List<GetAllMerchantReponse>>> GettAllMarchment(CancellationToken cancellationToken)
         {
             var Result = await _iuniteOfWork.MerchantRequestRepository.GetAllAsync(cancellationToken);
             var x = Result.Select(i => new GetAllMerchantReponse
@@ -196,7 +198,7 @@ namespace Infrastructure.Services
 
             }).ToList();
 
-            return ResultT<List<GetAllMerchantReponse>>.Success(x, "All Data Merchament Request");
+            return Result<List<GetAllMerchantReponse>>.Success(x, "All Merchant requests retrieved successfully");
         }
 
 

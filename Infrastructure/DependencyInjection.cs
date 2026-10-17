@@ -70,7 +70,7 @@ namespace Infrastructure
             // Services
 
             services.AddScoped<IAuthService, AuthService>();
-            services.AddScoped<IMerchantRepository, MerchantRequestRepository>();
+           
             services.AddScoped<IMarchmentRequestService, MarchmentRequestService>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(Genericrepository<>));
             services.AddScoped<IuniteOfWork, UniteOfWork>();

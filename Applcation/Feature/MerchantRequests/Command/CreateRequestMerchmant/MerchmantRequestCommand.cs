@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Applcation.Feature.MerchantRequests.Command.CreateRequestMerchmant
 {
-    public class MerchmantRequestCommand : IRequest<Results>
+    public class MerchmantRequestCommand : IRequest<Result>
     {
         public RegisterMerchantRequest registerMerchantRequest { get; set; }
     }

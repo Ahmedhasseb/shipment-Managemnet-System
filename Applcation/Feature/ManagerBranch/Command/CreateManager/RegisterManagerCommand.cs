@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Applcation.Feature.ManagerBranch.Command.CreateManager
 {
-    public class RegisterManagerCommand : IRequest<ResultT<bool>>
+    public class RegisterManagerCommand : IRequest<Result<bool>>
     {
         public RegisterManagerBranchDTO RegisterManagerBranch { get; set; }
     }

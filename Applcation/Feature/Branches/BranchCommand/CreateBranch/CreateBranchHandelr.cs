@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Applcation
 {
-    public class CreateBranchHandelr(ICreateBranchesService _createBranchesService) : IRequestHandler<CreateBranchCommand, ResultT<bool>>
+    public class CreateBranchHandelr(ICreateBranchesService _createBranchesService) : IRequestHandler<CreateBranchCommand, Result<bool>>
     {
-        public async Task<ResultT<bool>> Handle(CreateBranchCommand request, CancellationToken cancellationToken)
+        public async Task<Result<bool>> Handle(CreateBranchCommand request, CancellationToken cancellationToken)
         {
            var Result=await _createBranchesService.CreateBranch(request.branchDTO, cancellationToken);
             return Result;

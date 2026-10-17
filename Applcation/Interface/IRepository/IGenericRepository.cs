@@ -3,10 +3,10 @@
     public interface IGenericRepository<T> where T : class
     {
         Task AddAsync(T item);
-        void updateAsync(T item);
-        void DeleteAsync(T item);
+        void update(T item);
+        void Delete(T item);
         Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken);
-        Task<T> GetByid(int id);
+        Task<T> GetByidAsync(int id);
 
     }
 }

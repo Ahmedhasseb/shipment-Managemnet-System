@@ -1,30 +1,38 @@
-﻿namespace Applcation.Comman
+﻿using Domain.Enums;
+
+namespace Applcation.Comman
 {
-    public class ResultT<T> : Results
+    public class Result<T> : Result
     {
         public T? Data { get; private set; }
 
-        private ResultT(bool IsSuccess, string Massage, T? Dataa = default, List<string>? Errors = null) : base(IsSuccess, Massage, Errors)
+        private Result(bool IsSuccess, string Massage, ErrorType errorType,T? Dataa = default, IEnumerable<string>? Errors = null) : base(IsSuccess, Massage, errorType, Errors)
         {
             Data = Dataa;
         }
 
-        public static ResultT<T> Success(T data, string Message = "Success")
+        public static Result<T> Success(T data, string Message = "Success")
         {
-            return new ResultT<T>
+            return new Result<T>
                 (
                 true,
                 Message,
+                ErrorType.None,
                 data
                 );
         }
 
-        public static ResultT<T> Failure(string Message, List<string>? errors = null)
+        public new   static Result<T> Failure(string Message, ErrorType errorType, IEnumerable<string>? errors = null)
         {
-            return new ResultT<T>
+            if (errorType == ErrorType.None)
+            {
+                throw new ArgumentException("ErrorType cannot be None for a failure result.");
+            }   
+            return new Result<T>
                 (
                 false,
                 Message,
+                errorType,
                 default,
                 errors
                 );

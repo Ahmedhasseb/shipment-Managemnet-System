@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Applcation
 {
-    public class CreateBranchCommand : IRequest<ResultT<bool>>
+    public class CreateBranchCommand : IRequest<Result<bool>>
     {
         public BranchDTO branchDTO { get; set; }
     }

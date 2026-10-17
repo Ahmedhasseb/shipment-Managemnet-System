@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Applcation.Feature.ManagerBranch.Command.CreateManager
 {
-    public class RegisterManagerHandelr(IRegisterManagerBranch registerManagerBranch) : IRequestHandler<RegisterManagerCommand, ResultT<bool>>
+    public class RegisterManagerHandelr(IRegisterManagerBranch registerManagerBranch) : IRequestHandler<RegisterManagerCommand, Result<bool>>
     {
-        public async Task<ResultT<bool>> Handle(RegisterManagerCommand request, CancellationToken cancellationToken)
+        public async Task<Result<bool>> Handle(RegisterManagerCommand request, CancellationToken cancellationToken)
         {
           var Result =await registerManagerBranch.RegisterManagerBranches(request.RegisterManagerBranch,cancellationToken);
             return Result;

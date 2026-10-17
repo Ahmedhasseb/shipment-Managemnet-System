@@ -13,7 +13,7 @@ namespace Infrastructure.Data.Configuration
             builder.HasOne<User>()
                     .WithOne()
                     .HasForeignKey<MerchantRequests>(m => m.UserId)
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .IsRequired(false);
             builder.HasOne(m => m.Branch)
                     .WithMany(b => b.MerchantRequests)
                     .HasForeignKey(m => m.BranchId)

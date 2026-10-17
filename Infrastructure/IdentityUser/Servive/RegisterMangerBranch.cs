@@ -21,14 +21,14 @@ namespace Infrastructure.IdentityUser.Servive
             _userManager = userManager;
             _emailService = emailService;
         }
-        public async Task<ResultT<bool>> RegisterManagerBranches(RegisterManagerBranchDTO registerManagerBranchDTO, CancellationToken cancellationToken)
+        public async Task<Result<bool>> RegisterManagerBranches(RegisterManagerBranchDTO registerManagerBranchDTO, CancellationToken cancellationToken)
         {
            using var transaction=  _iuniteOfWork.BeginTransactionAsync(cancellationToken);
             try
             {
                 if (registerManagerBranchDTO.Email == null || registerManagerBranchDTO.Name == null || registerManagerBranchDTO.BranchId == 0)
                 {
-                    return ResultT<bool>.Failure("All fields are required.");
+                    return Result<bool>.Failure("All fields are required.", ErrorType.validation);
                 }
                 var Password = Guid.NewGuid().ToString("N").Substring(0, 8).ToUpper() + "a1";
                 var CreateUser = new User
@@ -44,7 +44,7 @@ namespace Infrastructure.IdentityUser.Servive
                 if (!Result.Succeeded)
                 {
                     var errors = Result.Errors.Select(e => e.Description).ToList();
-                    return ResultT<bool>.Failure("Failed to create manager branch.", errors);
+                    return Result<bool>.Failure("Failed to create manager branch.", ErrorType.failure);
                 }
                 await _userManager.AddToRoleAsync(CreateUser, "Manager");
 
@@ -65,7 +65,7 @@ namespace Infrastructure.IdentityUser.Servive
                 await _emailService.SendEmailAsync(CreateUser.Email, "ser Manager Branch Account Approved", $" Your manager branch account has been approved.\r\n\r\n Please click the following link to create your password:\r\n\r\n  {link}+ this is password only registery {Password}");
 
 
-                return ResultT<bool>.Success(true, "Manager branch registered successfully.");
+                return Result<bool>.Success(true, "Manager branch registered successfully.");
 
 
             }
@@ -73,7 +73,7 @@ namespace Infrastructure.IdentityUser.Servive
             {
 
                 await _iuniteOfWork.RollbackAsync(cancellationToken);
-                return ResultT<bool>.Failure($"An error occurred while registering the manager branch: {ex.Message}");
+                return Result<bool>.Failure($"An error occurred while registering the manager branch: {ex.Message}", ErrorType.failure);
             }
             
         }

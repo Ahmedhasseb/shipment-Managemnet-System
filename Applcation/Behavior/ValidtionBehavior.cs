@@ -9,16 +9,16 @@ namespace Applcation.Behavior
     {
 
 
-        public Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
             if (!validators.Any())
-                return next();
+                return await next();
             var context = new ValidationContext<TRequest>(request);
-            var validationResult = validators.Select(v => v.Validate(context));
+            var validationResult =await Task.WhenAll(validators.Select(v => v.ValidateAsync(context,cancellationToken)));
             var failures = validationResult.SelectMany(r => r.Errors).Where(f => f != null).ToList();
             if (failures.Count != 0)
                 throw new ValidationException(failures);
-            return next(cancellationToken);
+            return await next();
         }
     }
 }

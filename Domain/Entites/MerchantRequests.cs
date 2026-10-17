@@ -5,7 +5,7 @@ namespace Domain.Entites
 {
     public class MerchantRequests : BaseEntity
     {
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
         public string FName { get; set; }
         public string LName { get; set; }
         public string Email { get; set; }

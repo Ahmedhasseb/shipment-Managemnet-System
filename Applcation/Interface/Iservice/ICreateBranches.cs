@@ -10,6 +10,6 @@ namespace Applcation.Interface.Iservice
 {
     public interface ICreateBranchesService
     {
-       public Task<ResultT<bool>> CreateBranch(BranchDTO branchDTO,CancellationToken cancellationToken);
+       public Task<Result<bool>> CreateBranch(BranchDTO branchDTO,CancellationToken cancellationToken);
     }
 }

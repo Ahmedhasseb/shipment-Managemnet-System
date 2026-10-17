@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Applcation.Feature.MerchantRequests.Query.GettAllMerchament
 {
-    public sealed class GetAllMarchmentQuery : IRequest<ResultT<List<GetAllMerchantReponse>>>
+    public sealed class GetAllMarchmentQuery : IRequest<Result<List<GetAllMerchantReponse>>>
     {
     }
 }

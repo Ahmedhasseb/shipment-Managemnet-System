@@ -18,7 +18,7 @@ namespace Infrastructure.GenericRepository
 
 
 
-        public void DeleteAsync(T item) => _dbContext.Set<T>().Remove(item);
+        public void Delete(T item) => _dbContext.Set<T>().Remove(item);
 
 
 
@@ -26,10 +26,10 @@ namespace Infrastructure.GenericRepository
         public async Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken) => await _dbContext.Set<T>().ToListAsync(cancellationToken);
 
 
-        public async Task<T> GetByid(int id) => await _dbContext.Set<T>().FindAsync(id);
+        public async Task<T> GetByidAsync(int id) => await _dbContext.Set<T>().FindAsync(id);
 
 
-        public void updateAsync(T item) => _dbContext.Set<T>().Update(item);
+        public void update(T item) => _dbContext.Set<T>().Update(item);
 
     }
 }

@@ -22,10 +22,10 @@ namespace Infrastructure.Services
             
             _iuniteOfWork = iuniteOfWork;
         }
-        public async Task<ResultT<bool>> CreateBranch(BranchDTO branchDTO,CancellationToken cancellationToken)
+        public async Task<Result<bool>> CreateBranch(BranchDTO branchDTO,CancellationToken cancellationToken)
         {
             if(branchDTO ==null)
-             return ResultT<bool>.Failure("Branch data is null.");
+             return Result<bool>.Failure("Branch data is null.", ErrorType.validation);
 
             var Wallet = new Wallet()
             {
@@ -48,7 +48,7 @@ namespace Infrastructure.Services
 
             await _iuniteOfWork.SaveChangesAsync(cancellationToken);
             Console.WriteLine(Wallet.Id);
-            return ResultT<bool>.Success(true, "Branch created successfully.");
+            return Result<bool>.Success(true, "Branch created successfully.");
 
         }
     }

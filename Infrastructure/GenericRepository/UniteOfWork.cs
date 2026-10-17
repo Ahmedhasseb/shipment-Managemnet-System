@@ -5,31 +5,36 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Infrastructure.GenericRepository
 {
-    public class UniteOfWork : IuniteOfWork
+    public class UniteOfWork :  IuniteOfWork
     {
         private readonly dbContext _dbContext;
-        private IMerchantRepository? _merchantRepository;
+        private IMerchantRequestRepository? _merchantRequestRepository;
         private IGenericRepository<Wallet>? _walletRepository;
-        private IGenericRepository<Merchant>? _MerchanrRepository;
-        private IGenericRepository<ManagerBranch>? _ManagerBranchRepository;
+       private IManagerBranchRepository? _ManagerBranchRepository;
+
         private IGenericRepository<Branch>? _BranchRepository;
         private IGenericRepository<Location>? _LocationRepository;
+        private IGenericRepository<Merchant>? _MerchmentRepository;
         public UniteOfWork(dbContext dbContext) { _dbContext = dbContext; }
 
 
-        public IMerchantRepository MerchantRequestRepository => _merchantRepository ??= new MerchantRequestRepository(_dbContext);
+        public IMerchantRequestRepository MerchantRequestRepository => _merchantRequestRepository ??= new MerchantRequestRepository(_dbContext);
 
 
 
-        public IGenericRepository<Merchant> MerchanrRepository => _MerchanrRepository ??= new Genericrepository<Merchant>(_dbContext);
+      
 
         public IGenericRepository<Wallet> walletRepository => _walletRepository ??= new Genericrepository<Wallet>(_dbContext);
 
-        public IGenericRepository<ManagerBranch> ManagerBranchRepository => _ManagerBranchRepository ??= new Genericrepository<ManagerBranch>(_dbContext);
+        public IManagerBranchRepository ManagerBranchRepository => _ManagerBranchRepository ??= new ManagerBranchRepository (_dbContext);
 
         public IGenericRepository<Branch> BranchRepository => _BranchRepository ??= new Genericrepository<Branch>(_dbContext);
 
         public IGenericRepository<Location> LocationRepository => _LocationRepository ??= new Genericrepository<Location>(_dbContext);
+
+        public IGenericRepository<Merchant> MerchmentRepository => _MerchmentRepository ??= new Genericrepository<Merchant>(_dbContext);
+
+        IManagerBranchRepository IuniteOfWork.ManagerBranchRepository => throw new NotImplementedException();
 
         public void Dispose()
         {
@@ -48,7 +53,7 @@ namespace Infrastructure.GenericRepository
 
         public async Task CommiteAsync(CancellationToken cancellationToken = default)
         {
-          await _dbContext.Database.CommitTransactionAsync(cancellationToken);
+           await _dbContext.Database.CommitTransactionAsync(cancellationToken);
         }
 
         public async Task RollbackAsync(CancellationToken cancellationToken = default)

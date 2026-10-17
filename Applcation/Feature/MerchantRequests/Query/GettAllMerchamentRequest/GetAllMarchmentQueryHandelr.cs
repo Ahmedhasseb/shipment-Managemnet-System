@@ -5,9 +5,9 @@ using MediatR;
 
 namespace Applcation.Feature.MerchantRequests.Query.GettAllMerchament
 {
-    public class GetAllMarchmentQueryHandelr(IMarchmentRequestService marchmentRequestService) : IRequestHandler<GetAllMarchmentQuery, ResultT<List<GetAllMerchantReponse>>>
+    public class GetAllMarchmentQueryHandelr(IMarchmentRequestService marchmentRequestService) : IRequestHandler<GetAllMarchmentQuery, Result<List<GetAllMerchantReponse>>>
     {
-        public async Task<ResultT<List<GetAllMerchantReponse>>> Handle(GetAllMarchmentQuery request, CancellationToken cancellationToken)
+        public async Task<Result<List<GetAllMerchantReponse>>> Handle(GetAllMarchmentQuery request, CancellationToken cancellationToken)
         {
             var result = await marchmentRequestService.GettAllMarchment(cancellationToken);
             return result;

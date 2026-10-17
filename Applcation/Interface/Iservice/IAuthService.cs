@@ -6,8 +6,8 @@ namespace Applcation.Interface.Iservice
 {
     public interface IAuthService
     {
-        Task<Results> RegisterUser(RegisterUserDTO registerDTO);
+        Task<Result> RegisterUser(RegisterUserDTO registerDTO);
 
-        Task<ResultT<LoginResponseDTO>> signInApplaction(string Email, string Password);
+        Task<Result<LoginResponseDTO>> signInApplaction(string Email, string Password);
     }
 }

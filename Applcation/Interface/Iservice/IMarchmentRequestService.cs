@@ -5,12 +5,12 @@ namespace Applcation.Interface.Iservice
 {
     public interface IMarchmentRequestService
     {
-        Task<ResultT<string>> AcceptEmailMerchant(int id, CancellationToken cancellationToken);
-        Task<Results> CreateMerchmentRquest(RegisterMerchantRequest registerMerchantRequest, CancellationToken cancellationToken);
-        Task<ResultT<List<GetAllMerchantReponse>>> GetAllMerchmentApprove(CancellationToken cancellationToken);
-        Task<ResultT<List<GetAllMerchantReponse>>> GettAllMarchment(CancellationToken cancellationToken);
+        Task<Result<string>> AcceptEmailMerchant(int id, CancellationToken cancellationToken);
+        Task<Result> CreateMerchmentRquest(RegisterMerchantRequest registerMerchantRequest, CancellationToken cancellationToken);
+        Task<Result<List<GetAllMerchantReponse>>> GetAllMerchmentApprove(CancellationToken cancellationToken);
+        Task<Result<List<GetAllMerchantReponse>>> GettAllMarchment(CancellationToken cancellationToken);
 
-        Task<ResultT<List<GetAllMerchantReponse>>> GetAllMerchamntRequestByBranch(string UserId, CancellationToken cancellationToken);
+        Task<Result<List<GetAllMerchantReponse>>> GetAllMerchamntRequestByBranch(string UserId, CancellationToken cancellationToken);
 
     }
 }

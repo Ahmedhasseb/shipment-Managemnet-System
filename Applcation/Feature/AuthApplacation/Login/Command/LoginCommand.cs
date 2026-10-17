@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Applcation.Feature.AuthApplacation.Login.Command
 {
-    public class LoginCommand : IRequest<ResultT<LoginResponseDTO>>
+    public class LoginCommand : IRequest<Result<LoginResponseDTO>>
     {
         public string Email { get; set; }
         public string Password { get; set; }

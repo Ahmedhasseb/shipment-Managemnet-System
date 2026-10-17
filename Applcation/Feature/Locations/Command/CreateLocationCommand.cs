@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Applcation
 {
-    public class CreateLocationCommand:IRequest<ResultT<bool>>
+    public class CreateLocationCommand:IRequest<Result<bool>>
     {
         public string Name { get; set; }    
         public LocationType LocationType { get; set; }
