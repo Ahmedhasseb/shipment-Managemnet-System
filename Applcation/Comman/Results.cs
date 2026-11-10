@@ -4,8 +4,8 @@ namespace Applcation.Comman
 {
     public class Result
     {
-        public bool IsSuccess { get;  }
-        public string Message { get;  }
+        public bool IsSuccess { get; set; }
+        public string Message { get; set; }
         public IReadOnlyList<string> Errors { get; } 
 
         public ErrorType ErrorType { get; set; }
